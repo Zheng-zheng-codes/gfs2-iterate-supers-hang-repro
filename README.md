@@ -20,16 +20,18 @@ and the hung-task watchdog panics at 143 seconds.
 ## Status
 
 - Original report: Linux 7.1.3
-- Reproduced on Linux 7.2.11 (state-primed, attempt #1: the hung task at 858.402 s
-  with the same `__iterate_supers` -> `super_lock()` / `s_umount` @
-  `deactivate_super` lock chain) and on Linux 7.3.0 (159-program sequence)
-- C reproducer: not available.  The state-primed/syz reproductions
-  **succeeded**; only the standalone C conversion failed.  The 7.2.11 full
-  console is in `7.2.11/console-7.2.11.log`; `7.2.11/repro.log` is the 16 KB
-  captured report excerpt.
-- The crash was reproduced using the full 159-program sequence; the required
-  subset is not yet known.
-- The 7.3.0 sequence is 159 programs long and about 14 MB (embedded images)
+- On 7.2.11, state-primed replay successfully triggered
+"INFO: task hung in __iterate_supers", with the same s_umount
+lock-wait pattern. Standalone C reproducer conversion failed
+(C=false).
+
+The captured logs do not identify the filesystem holding the lock.
+An identical GFS2 root cause across versions has not yet been
+confirmed.
+- Reproduced on Linux 7.3.0 with the 159-program state-construction sequence
+  followed by `repro.prog`.
+- The 7.2.11 full console is in `7.2.11/console-7.2.11.log`; `7.2.11/repro.log`
+  is the 16 KB captured report excerpt.
 
 ## 7.3.0 observed sequence
 
