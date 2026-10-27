@@ -20,8 +20,13 @@ and the hung-task watchdog panics at 143 seconds.
 ## Status
 
 - Original report: Linux 7.1.3
-- Reproduced: Linux 7.2.11 (state-primed) and Linux 7.3.0
-- C reproducer: not available (C conversion failed during state-primed reproduction)
+- Reproduced on Linux 7.2.11 (state-primed, attempt #1: the hung task at 858.402 s
+  with the same `__iterate_supers` -> `super_lock()` / `s_umount` @
+  `deactivate_super` lock chain) and on Linux 7.3.0 (159-program sequence)
+- C reproducer: not available.  The state-primed/syz reproductions
+  **succeeded**; only the standalone C conversion failed.  The 7.2.11 full
+  console is in `7.2.11/console-7.2.11.log`; `7.2.11/repro.log` is the 16 KB
+  captured report excerpt.
 - The crash was reproduced using the full 159-program sequence; the required
   subset is not yet known.
 - The 7.3.0 sequence is 159 programs long and about 14 MB (embedded images)
