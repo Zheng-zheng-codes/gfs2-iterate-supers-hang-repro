@@ -79,12 +79,16 @@ repro/repro.kernsight.prog        159-program state-construction sequence
 7.3/cmdline-7.3.txt               kernel command line
 7.3/boot-info-7.3.txt             guest boot information
 7.3/RESULT-7.3.txt                7.3.0 replay summary
+kernel/kernel-7.1.3.config        kernel config for the 7.1.3 report
+kernel/kernel-7.2.11.config       kernel config for the 7.2.11 replay
+kernel/kernel-7.3.config          kernel config for the 7.3.0 replay
 verify.sh                         re-checks the numbers quoted above
 MANIFEST.sha256                   sha256 of every file in this repository
 ```
 
-No kernel config was saved for this bug. The 7.1.3, 7.2.11 and 7.3.0 kernels
-are KASAN/KCOV builds; no gfs2 source changes were made for this testing.
+The kernel configs match the `-kernsight-kasan` builds used for the three
+kernels (KASAN/KCOV; gfs2 built in). No gfs2 source changes were made for
+this testing.
 
 ## Quick check
 

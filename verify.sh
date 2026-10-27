@@ -47,6 +47,12 @@ check "7.1.3 hung task" 7.1.3/report0 "INFO: task syz.7.2306:58274 blocked for m
 check "7.1.3 sync stack" 7.1.3/report0 "__iterate_supers+0x1e6/0x340"
 check "7.1.3 491-second glock message" 7.1.3/log0 "2 glocks left after 491 seconds; still waiting"
 
+for cfg in kernel/kernel-7.1.3.config kernel/kernel-7.2.11.config kernel/kernel-7.3.config; do
+	check "$cfg exists" "$cfg" "CONFIG_GFS2_FS=y"
+	check "$cfg KASAN" "$cfg" "CONFIG_KASAN=y"
+	check "$cfg failslab" "$cfg" "CONFIG_FAILSLAB=y"
+done
+
 if [ -f MANIFEST.sha256 ]; then
 	if sha256sum -c MANIFEST.sha256 >/dev/null 2>&1; then
 		printf 'ok   MANIFEST.sha256\n'
