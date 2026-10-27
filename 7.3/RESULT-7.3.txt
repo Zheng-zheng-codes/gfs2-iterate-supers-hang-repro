@@ -1,0 +1,23 @@
+# 06a0493563ebb03d260761988b4850eed7f5c988
+
+- 标题: INFO: task hung in __iterate_supers
+- 复现器: repro.kernsight.prog
+- 7.3 执行: YES
+- 判定依据: class=hung sym=__iterate_supers
+[   25.853222][    T0] Spectre V2 : WARNING: Unprivileged eBPF is enabled with eIBRS on, data leaks possible via Spectre v2 BHB attacks!
+[  259.462825][T11532] WARNING: The mand mount option has been deprecated and
+[  489.029328][   T43] INFO: task syz.6.106:15555 blocked for more than 143 seconds.
+[  489.029954][   T43]  __iterate_supers+0x377/0x460
+[  489.030009][   T43]  ? __pfx___iterate_supers+0x10/0x10
+[  489.033265][   T43] Kernel panic - not syncing: hung_task: blocked tasks
+- 时间: 2026-10-27T06:38:23Z
+
+## 串口关键行
+```
+[   25.853222][    T0] Spectre V2 : WARNING: Unprivileged eBPF is enabled with eIBRS on, data leaks possible via Spectre v2 BHB attacks!
+[  259.462825][T11532] WARNING: The mand mount option has been deprecated and
+[  489.029328][   T43] INFO: task syz.6.106:15555 blocked for more than 143 seconds.
+[  489.029954][   T43]  __iterate_supers+0x377/0x460
+[  489.030009][   T43]  ? __pfx___iterate_supers+0x10/0x10
+[  489.033265][   T43] Kernel panic - not syncing: hung_task: blocked tasks
+```

@@ -1,0 +1,15 @@
+qemu started port=12101 serial=/tmp/ksreplay-r73-06a0493563ebb03d260761988b4850eed7f5c988.serial
+ssh up after 70s
+Warning: Permanently added '[127.0.0.1]:12101' (ED25519) to the list of known hosts.
+7.3.0-kernsight-kasan
+Linux version 7.3.0-kernsight-kasan (@16486d83ae9f) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #1 SMP PREEMPT_DYNAMIC Tue Oct 20 12:39:27 UTC 2026
+Warning: Permanently added '[127.0.0.1]:12101' (ED25519) to the list of known hosts.
+Warning: Permanently added '[127.0.0.1]:12101' (ED25519) to the list of known hosts.
+started
+execprog finished without panic at 420s
+---- 崩溃摘要(串口) ----
+[   25.853222][    T0] Spectre V2 : WARNING: Unprivileged eBPF is enabled with eIBRS on, data leaks possible via Spectre v2 BHB attacks!
+[  259.462825][T11532] WARNING: The mand mount option has been deprecated and
+[  489.029328][   T43] INFO: task syz.6.106:15555 blocked for more than 143 seconds.
+[  489.033265][   T43] Kernel panic - not syncing: hung_task: blocked tasks
+---- 完整串口: /workspace/validation/replay-7.3-20261027/out/06a0493563ebb03d260761988b4850eed7f5c988/serial.log (容器内) ----

@@ -1,0 +1,245 @@
+[  848.737595][ T9763] hsr_slave_0: left promiscuous mode
+[  848.740341][ T9763] hsr_slave_1: left promiscuous mode
+[  848.744582][ T9763] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  848.748257][ T9763] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  848.756967][ T9763] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  848.769902][ T9763] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  848.807989][ T9763] hsr_slave_0: left promiscuous mode
+[  848.810829][ T9763] hsr_slave_1: left promiscuous mode
+[  848.812401][ T9763] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  848.813175][ T9763] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  848.818314][ T9763] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  848.819123][ T9763] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  848.824185][ T9763] hsr_slave_0: left promiscuous mode
+[  848.825339][ T9763] hsr_slave_1: left promiscuous mode
+[  848.826364][ T9763] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  848.827118][ T9763] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  848.830970][ T9763] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  848.838398][ T9763] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  848.878185][ T9763] veth1_macvtap: left promiscuous mode
+[  848.879416][ T9763] veth0_macvtap: left promiscuous mode
+[  848.881608][ T9763] veth1_vlan: left promiscuous mode
+[  848.884602][ T9763] veth0_vlan: left promiscuous mode
+[  848.888339][ T9763] veth1_macvtap: left promiscuous mode
+[  848.889012][ T9763] veth0_macvtap: left promiscuous mode
+[  848.889736][ T9763] veth1_vlan: left promiscuous mode
+[  848.890390][ T9763] veth0_vlan: left promiscuous mode
+[  848.894344][ T9763] veth1_macvtap: left promiscuous mode
+[  848.896806][ T9763] veth0_macvtap: left promiscuous mode
+[  848.898699][ T9763] veth1_vlan: left promiscuous mode
+[  848.900496][ T9763] veth0_vlan: left promiscuous mode
+[  849.459447][ T9763] team0 (unregistering): Port device team_slave_1 removed
+[  849.479495][ T9763] team0 (unregistering): Port device team_slave_0 removed
+[  849.938196][ T9763] team0 (unregistering): Port device team_slave_1 removed
+[  850.017278][ T9763] team0 (unregistering): Port device team_slave_0 removed
+[  850.862563][ T9763] team0 (unregistering): Port device team_slave_1 removed
+[  850.881902][ T9763] team0 (unregistering): Port device team_slave_0 removed
+Warning: Permanently added '[localhost]:30420' (ED25519) to the list of known hosts.
+[  858.402464][   T47] INFO: task syz.0.31:21959 blocked for more than 142 seconds.
+[  858.403321][   T47]       Tainted: G            EL      7.2.11-kernsight-kasan #1
+[  858.404138][   T47] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  858.405230][   T47] task:syz.0.31        state:D stack:29000 pid:21959 tgid:21949 ppid:20443  task_flags:0x400040 flags:0x00080003
+[  858.406604][   T47] Call Trace:
+[  858.407056][   T47]  <TASK>
+[  858.407473][   T47]  ? __schedule+0x12c3/0x6870
+[  858.408122][   T47]  __schedule+0x1348/0x6870
+[  858.408688][   T47]  ? __lock_acquire+0x528/0x1c60
+[  858.409946][   T47]  ? __pfx___schedule+0x10/0x10
+[  858.410543][   T47]  ? schedule+0xe5/0x2d0
+[  858.411062][   T47]  ? schedule+0xe5/0x2d0
+[  858.411512][   T47]  ? rcu_is_watching+0x12/0xc0
+[  858.428271][   T47]  schedule+0xec/0x2d0
+[  858.429981][   T47]  schedule_preempt_disabled+0x18/0x30
+[  858.431834][   T47]  rwsem_down_read_slowpath+0x597/0xc10
+[  858.436946][   T47]  ? __pfx_rwsem_down_read_slowpath+0x10/0x10
+[  858.439276][   T47]  ? down_read+0xaa/0x4d0
+[  858.440961][   T47]  ? down_read+0xaa/0x4d0
+[  858.449603][   T47]  ? rcu_is_watching+0x12/0xc0
+[  858.451285][   T47]  ? down_read+0xaa/0x4d0
+[  858.454549][   T47]  down_read+0xf4/0x4d0
+[  858.456110][   T47]  ? __pfx_down_read+0x10/0x10
+[  858.457822][   T47]  super_lock+0x318/0x3e0
+[  858.459431][   T47]  ? __pfx_super_lock+0x10/0x10
+[  858.461132][   T47]  ? _raw_spin_unlock+0x2d/0x50
+[  858.481654][   T47]  ? rcu_is_watching+0x12/0xc0
+[  858.485081][   T47]  ? _raw_spin_unlock+0x2d/0x50
+[  858.486821][   T47]  ? trace_preempt_on+0x122/0x170
+[  858.488813][   T47]  __iterate_supers+0x377/0x460
+[  858.490861][   T47]  ? __pfx_sync_inodes_one_sb+0x10/0x10
+[  858.493001][   T47]  ? __pfx___iterate_supers+0x10/0x10
+[  858.494912][   T47]  ksys_sync+0x8c/0xf0
+[  858.496419][   T47]  ? __pfx_ksys_sync+0x10/0x10
+[  858.498786][   T47]  ? do_syscall_64+0x8b/0x860
+[  858.501130][   T47]  __do_sys_sync+0x13/0x20
+[  858.513842][   T47]  do_syscall_64+0x129/0x860
+[  858.514522][   T47]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  858.515365][   T47] RIP: 0033:0x7f0d351b3fad
+[  858.515980][   T47] RSP: 002b:00007f0d35fd1b78 EFLAGS: 00000246 ORIG_RAX: 00000000000000a2
+[  858.517165][   T47] RAX: ffffffffffffffda RBX: 00007f0d35426180 RCX: 00007f0d351b3fad
+[  858.518224][   T47] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[  858.519262][   T47] RBP: 00007f0d3523d273 R08: 0000000000000000 R09: 0000000000000000
+[  858.520232][   T47] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  858.538521][   T47] R13: 00007f0d35426218 R14: 00007f0d35426180 R15: 00007f0d35fd1d40
+[  858.548893][   T47]  </TASK>
+[  858.553693][   T47] 
+[  858.553693][   T47] Showing all locks held in the system:
+[  858.554758][   T47] 1 lock held by khungtaskd/47:
+[  858.555437][   T47]  #0: ffffffff8fe22780 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x36/0x1c0
+[  858.556860][   T47] 1 lock held by syz-executor/17290:
+[  858.558781][   T47]  #0: ff11000105b6c0d8 (&type->s_umount_key#91){++++}-{4:4}, at: deactivate_super+0xae/0xd0
+[  858.568558][   T47] 1 lock held by syz.0.31/21959:
+[  858.579584][   T47]  #0: ff11000105b6c0d8 (&type->s_umount_key#91){++++}-{4:4}, at: super_lock+0x318/0x3e0
+[  858.585083][   T47] 
+[  858.586021][   T47] =============================================
+[  858.586021][   T47] 
+[  858.589033][   T47] NMI backtrace for cpu 2
+[  858.589047][   T47] CPU: 2 UID: 0 PID: 47 Comm: khungtaskd Tainted: G            EL      7.2.11-kernsight-kasan #1 PREEMPT(full) 
+[  858.589088][   T47] Tainted: [E]=UNSIGNED_MODULE, [L]=SOFTLOCKUP
+[  858.589095][   T47] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[  858.589106][   T47] Call Trace:
+[  858.589113][   T47]  <TASK>
+[  858.589121][   T47]  dump_stack_lvl+0x116/0x1b0
+[  858.589150][   T47]  nmi_cpu_backtrace+0x2a0/0x350
+[  858.589177][   T47]  ? __pfx_nmi_raise_cpu_backtrace+0x10/0x10
+[  858.589204][   T47]  nmi_trigger_cpumask_backtrace+0x283/0x370
+[  858.589234][   T47]  sys_info+0x133/0x180
+[  858.589255][   T47]  watchdog+0xe96/0x1230
+[  858.589294][   T47]  ? __pfx_watchdog+0x10/0x10
+[  858.589326][   T47]  kthread+0x392/0x4a0
+[  858.589353][   T47]  ? __pfx_kthread+0x10/0x10
+[  858.589381][   T47]  ret_from_fork+0xb0e/0xdb0
+[  858.589400][   T47]  ? __pfx_ret_from_fork+0x10/0x10
+[  858.589423][   T47]  ? __switch_to+0x9e5/0x13b0
+[  858.589446][   T47]  ? __pfx_kthread+0x10/0x10
+[  858.589476][   T47]  ret_from_fork_asm+0x1a/0x30
+[  858.589528][   T47]  </TASK>
+[  858.589536][   T47] Sending NMI from CPU 2 to CPUs 0-1,3:
+[  858.663623][    C0] NMI backtrace for cpu 0
+[  858.663640][    C0] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G            EL      7.2.11-kernsight-kasan #1 PREEMPT(full) 
+[  858.663661][    C0] Tainted: [E]=UNSIGNED_MODULE, [L]=SOFTLOCKUP
+[  858.663671][    C0] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[  858.663679][    C0] RIP: 0010:pv_native_safe_halt+0x1e/0x30
+[  858.663707][    C0] Code: 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 0f 1f 44 00 00 66 90 0f 1f 44 00 00 0f 00 2d 99 6c 2d 00 0f 1f 44 00 00 fb f4 <c3> cc cc cc cc 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90 90 90 90
+[  858.663719][    C0] RSP: 0018:ffffffff8fa07e00 EFLAGS: 00000246
+[  858.663731][    C0] RAX: 0000000000294741 RBX: ffffffff8fa93500 RCX: ffffffff8bbed479
+[  858.663740][    C0] RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000000000000000
+[  858.663748][    C0] RBP: fffffbfff1f526a0 R08: 0000000000000001 R09: ffe21c001428683d
+[  858.663756][    C0] R10: ff110000a14341eb R11: 0000000000000000 R12: dffffc0000000000
+[  858.663764][    C0] R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000013bd0
+[  858.663773][    C0] FS:  0000000000000000(0000) GS:ff1100010b764000(0000) knlGS:0000000000000000
+[  858.663787][    C0] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  858.663796][    C0] CR2: 00007feb45105002 CR3: 00000000356e4000 CR4: 0000000000753ef0
+[  858.663804][    C0] PKRU: 55555554
+[  858.663809][    C0] Call Trace:
+[  858.663815][    C0]  <TASK>
+[  858.663820][    C0]  default_idle+0xe/0x20
+[  858.663835][    C0]  default_idle_call+0x75/0xc0
+[  858.663849][    C0]  do_idle+0x3f3/0x610
+[  858.663872][    C0]  ? __pfx_do_idle+0x10/0x10
+[  858.663890][    C0]  ? finish_task_switch.isra.0+0xe1/0x1100
+[  858.663914][    C0]  cpu_startup_entry+0x54/0x60
+[  858.663934][    C0]  rest_init+0x170/0x2b0
+[  858.663949][    C0]  ? acpi_subsystem_init+0x138/0x180
+[  858.663965][    C0]  ? __pfx_x86_late_time_init+0x10/0x10
+[  858.663983][    C0]  start_kernel+0x3fa/0x4d0
+[  858.664000][    C0]  x86_64_start_reservations+0x18/0x30
+[  858.664017][    C0]  x86_64_start_kernel+0x141/0x1a0
+[  858.664033][    C0]  common_startup_64+0x13e/0x158
+[  858.664060][    C0]  </TASK>
+[  858.664065][    C1] NMI backtrace for cpu 1
+[  858.664077][    C1] CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Tainted: G            EL      7.2.11-kernsight-kasan #1 PREEMPT(full) 
+[  858.664136][    C1] Tainted: [E]=UNSIGNED_MODULE, [L]=SOFTLOCKUP
+[  858.664144][    C1] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[  858.664153][    C1] RIP: 0010:pv_native_safe_halt+0x1e/0x30
+[  858.664180][    C1] Code: 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 0f 1f 44 00 00 66 90 0f 1f 44 00 00 0f 00 2d 99 6c 2d 00 0f 1f 44 00 00 fb f4 <c3> cc cc cc cc 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90 90 90 90
+[  858.664196][    C1] RSP: 0018:ffa000000019fdf8 EFLAGS: 00000246
+[  858.664209][    C1] RAX: 000000000021e727 RBX: ff11000020aaa600 RCX: ffffffff8bbed479
+[  858.664219][    C1] RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000000000000000
+[  858.664229][    C1] RBP: ffe21c00041554c0 R08: 0000000000000001 R09: ffe21c00142a683d
+[  858.664239][    C1] R10: ff110000a15341eb R11: 0000000000000000 R12: dffffc0000000000
+[  858.664250][    C1] R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+[  858.664260][    C1] FS:  0000000000000000(0000) GS:ff1100010b864000(0000) knlGS:0000000000000000
+[  858.664276][    C1] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  858.664287][    C1] CR2: 00007fefb609da60 CR3: 0000000112c6b000 CR4: 0000000000753ef0
+[  858.664297][    C1] PKRU: 55555554
+[  858.664303][    C1] Call Trace:
+[  858.664308][    C1]  <TASK>
+[  858.664313][    C1]  default_idle+0xe/0x20
+[  858.664330][    C1]  default_idle_call+0x75/0xc0
+[  858.664347][    C1]  do_idle+0x3f3/0x610
+[  858.664373][    C1]  ? __pfx_do_idle+0x10/0x10
+[  858.664396][    C1]  ? finish_task_switch.isra.0+0x151/0x1100
+[  858.664426][    C1]  cpu_startup_entry+0x54/0x60
+[  858.664450][    C1]  start_secondary+0x21d/0x2d0
+[  858.664471][    C1]  ? __pfx_start_secondary+0x10/0x10
+[  858.664497][    C1]  common_startup_64+0x13e/0x158
+[  858.664528][    C1]  </TASK>
+[  858.668787][    C3] NMI backtrace for cpu 3
+[  858.668797][    C3] CPU: 3 UID: 0 PID: 28821 Comm: cc1plus Tainted: G            EL      7.2.11-kernsight-kasan #1 PREEMPT(full) 
+[  858.668817][    C3] Tainted: [E]=UNSIGNED_MODULE, [L]=SOFTLOCKUP
+[  858.668822][    C3] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[  858.668829][    C3] RIP: 0010:do_anonymous_page+0x150a/0x1ff0
+[  858.668849][    C3] Code: 24 48 e8 f9 5b 1a 00 e9 55 ec ff ff e8 6f 94 9b ff 48 c7 c0 80 88 68 92 48 ba 00 00 00 00 00 fc ff df 48 c1 e8 03 80 3c 10 00 <0f> 85 fd 06 00 00 48 c7 c0 98 88 68 92 49 89 ed 48 ba 00 00 00 00
+[  858.668863][    C3] RSP: 0000:ffa000000790fbd8 EFLAGS: 00000246
+[  858.668876][    C3] RAX: 1ffffffff24d1110 RBX: 0000000000000000 RCX: ffffffff822c4f65
+[  858.668888][    C3] RDX: dffffc0000000000 RSI: ffffffff822c6061 RDI: 0000000000000007
+[  858.668900][    C3] RBP: 0000000008100073 R08: 0000000000000000 R09: 0000000000000001
+[  858.668909][    C3] R10: 0000000000000000 R11: 0000000000000001 R12: 00000000000001ff
+[  858.668920][    C3] R13: fff0000000000fff R14: ffa000000790fd48 R15: ff11000026750640
+[  858.668931][    C3] FS:  00007feb46addb00(0000) GS:ff1100020e264000(0000) knlGS:0000000000000000
+[  858.668949][    C3] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  858.668962][    C3] CR2: 00007feb44b4a088 CR3: 0000000028b00000 CR4: 0000000000753ef0
+[  858.668971][    C3] PKRU: 55555554
+[  858.668979][    C3] Call Trace:
+[  858.668985][    C3]  <TASK>
+[  858.668995][    C3]  ? rcu_read_unlock+0x2d/0xb0
+[  858.669025][    C3]  __handle_mm_fault+0x1e84/0x2d30
+[  858.669054][    C3]  ? __pfx___handle_mm_fault+0x10/0x10
+[  858.669080][    C3]  ? lock_vma_under_rcu+0x17c/0x5a0
+[  858.669110][    C3]  ? __pfx_lock_vma_under_rcu+0x10/0x10
+[  858.669140][    C3]  handle_mm_fault+0x410/0xae0
+[  858.669166][    C3]  do_user_addr_fault+0x845/0x1530
+[  858.669192][    C3]  ? rcu_is_watching+0x12/0xc0
+[  858.669217][    C3]  exc_page_fault+0xc2/0x1a0
+[  858.669246][    C3]  asm_exc_page_fault+0x26/0x30
+[  858.669263][    C3] RIP: 0033:0x14be6e0
+[  858.669281][    C3] Code: 83 fb 08 73 25 f6 c3 04 0f 85 6c 01 00 00 48 85 db 74 30 c6 00 00 f6 c3 02 74 28 31 c0 66 89 44 1d fe eb 1f 66 0f 1f 44 00 00 <48> c7 44 18 f8 00 00 00 00 48 8d 4b ff 31 c0 48 89 ef 48 c1 e9 03
+[  858.669298][    C3] RSP: 002b:00007fff98f359c0 EFLAGS: 00010216
+[  858.669313][    C3] RAX: 00007feb44b4a000 RBX: 0000000000000090 RCX: 000000000000001b
+[  858.669325][    C3] RDX: 0000000000000090 RSI: 0000000000000006 RDI: 000000000000001c
+[  858.669336][    C3] RBP: 00007feb44b4a000 R08: 000000000000004e R09: 000000000000004e
+[  858.669345][    C3] R10: 0000000000007c2e R11: 0000000015a71810 R12: 0000000000000025
+[  858.669358][    C3] R13: 0000000000000003 R14: 0000000000000025 R15: 0000000015a9a123
+[  858.669388][    C3]  </TASK>
+[  858.684254][   T47] Kernel panic - not syncing: hung_task: blocked tasks
+[  858.684277][   T47] CPU: 0 UID: 0 PID: 47 Comm: khungtaskd Tainted: G            EL      7.2.11-kernsight-kasan #1 PREEMPT(full) 
+[  858.684306][   T47] Tainted: [E]=UNSIGNED_MODULE, [L]=SOFTLOCKUP
+[  858.684314][   T47] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[  858.684324][   T47] Call Trace:
+[  858.684331][   T47]  <TASK>
+[  858.684341][   T47]  dump_stack_lvl+0x3d/0x1b0
+[  858.684369][   T47]  vpanic+0x7f7/0xa80
+[  858.684399][   T47]  ? __pfx_vpanic+0x10/0x10
+[  858.684429][   T47]  ? preempt_schedule_thunk+0x16/0x40
+[  858.684449][   T47]  ? preempt_schedule_thunk+0x16/0x40
+[  858.684466][   T47]  ? preempt_schedule_thunk+0x16/0x40
+[  858.684485][   T47]  ? rcu_is_watching+0x12/0xc0
+[  858.684515][   T47]  panic+0xc7/0xd0
+[  858.684542][   T47]  ? __pfx_panic+0x10/0x10
+[  858.684567][   T47]  ? __pfx_nmi_raise_cpu_backtrace+0x10/0x10
+[  858.684598][   T47]  ? nmi_trigger_cpumask_backtrace+0x1ee/0x370
+[  858.684623][   T47]  ? nmi_trigger_cpumask_backtrace+0x31d/0x370
+[  858.684651][   T47]  ? watchdog+0xeb3/0x1230
+[  858.684679][   T47]  ? watchdog+0xea6/0x1230
+[  858.684710][   T47]  watchdog+0xec4/0x1230
+[  858.684749][   T47]  ? __pfx_watchdog+0x10/0x10
+[  858.684799][   T47]  kthread+0x392/0x4a0
+[  858.684826][   T47]  ? __pfx_kthread+0x10/0x10
+[  858.684858][   T47]  ret_from_fork+0xb0e/0xdb0
+[  858.684880][   T47]  ? __pfx_ret_from_fork+0x10/0x10
+[  858.684903][   T47]  ? __switch_to+0x9e5/0x13b0
+[  858.684928][   T47]  ? __pfx_kthread+0x10/0x10
+[  858.684960][   T47]  ret_from_fork_asm+0x1a/0x30
+[  858.685016][   T47]  </TASK>
+[  859.008037][   T47] Kernel Offset: disabled
+[  859.009584][   T47] Rebooting in 86400 seconds..
