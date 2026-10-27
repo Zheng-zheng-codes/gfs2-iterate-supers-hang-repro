@@ -21,7 +21,9 @@ and the hung-task watchdog panics at 143 seconds.
 
 - Original report: Linux 7.1.3
 - Reproduced: Linux 7.2.11 (state-primed) and Linux 7.3.0
-- C reproducer: not available (state-dependent)
+- C reproducer: not available (C conversion failed during state-primed reproduction)
+- The crash was reproduced using the full 159-program sequence; the required
+  subset is not yet known.
 - The 7.3.0 sequence is 159 programs long and about 14 MB (embedded images)
 
 ## 7.3.0 observed sequence
@@ -59,6 +61,21 @@ sufficient.
 The sequence contains syzkaller fault-injection annotations. In the 7.3.0 run
 a failslab failure in `gfs2_glock_get()` is injected from `gfs2_create_inode()`.
 No additional debugfs fault-injection configuration was used.
+
+## Kernel sources
+
+- 7.1.3: Linux 7.1.3 release, build tag
+  `linux-7.1.3-kernsight-kasan-v1`. The saved tree is not a git checkout, so
+  no source commit hash is available.
+- 7.2.11: Linux 7.2.11 release tarball, sha256
+  `fd0fc479f983a8c05313f13e9c36330fe6651cf725396748c40d5cd93fa1e6a4`.
+- 7.3.0: mainline Linux v7.3 release tarball, sha256
+  `87363c24f10e06321eb362765521094e94471f6bff8bce2d6b3e40f39f004953`.
+
+For 7.2.11 and 7.3.0 the source tarball checksums were verified and only the
+kernel configuration was adapted; no kernel source changes were made. No
+source diff is included for 7.1.3. The KernSight changes are in the syzkaller
+tree, not in the kernel.
 
 ## Contents
 
