@@ -64,12 +64,14 @@ No additional debugfs fault-injection configuration was used.
 
 ## Kernel sources
 
-- 7.1.3: Linux 7.1.3 release, build tag
-  `linux-7.1.3-kernsight-kasan-v1`. The saved tree is not a git checkout, so
-  no source commit hash is available.
-- 7.2.11: Linux 7.2.11 release tarball, sha256
+- 7.1.3: Linux v7.1.3, commit
+  `113be0295f4f632d61f4e9c93322f70e2365f54d`, build tag
+  `linux-7.1.3-kernsight-kasan-v1`. The saved tree is not a git checkout.
+- 7.2.11: Linux v7.2.11, commit
+  `8316c24ec1b77dba19ba072ca4fe251b36dc65d3`, release tarball sha256
   `fd0fc479f983a8c05313f13e9c36330fe6651cf725396748c40d5cd93fa1e6a4`.
-- 7.3.0: mainline Linux v7.3 release tarball, sha256
+- 7.3.0: mainline Linux v7.3, commit
+  `091b06388b117fefdcb63336ac09956a4914b961`, release tarball sha256
   `87363c24f10e06321eb362765521094e94471f6bff8bce2d6b3e40f39f004953`.
 
 For 7.2.11 and 7.3.0 the source tarball checksums were verified and only the
@@ -99,6 +101,7 @@ repro/repro.kernsight.prog        159-program state-construction sequence
 kernel/kernel-7.1.3.config        kernel config for the 7.1.3 report
 kernel/kernel-7.2.11.config       kernel config for the 7.2.11 replay
 kernel/kernel-7.3.config          kernel config for the 7.3.0 replay
+kernel/SOURCES.md                 source tags, commits and tarball checksums
 verify.sh                         re-checks the numbers quoted above
 MANIFEST.sha256                   sha256 of every file in this repository
 ```
