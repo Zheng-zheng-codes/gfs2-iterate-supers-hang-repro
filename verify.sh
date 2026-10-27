@@ -57,6 +57,9 @@ check "7.1.3 source commit" kernel/SOURCES.md "113be0295f4f632d61f4e9c93322f70e2
 check "7.2.11 source commit" kernel/SOURCES.md "8316c24ec1b77dba19ba072ca4fe251b36dc65d3"
 check "7.3.0 source commit" kernel/SOURCES.md "091b06388b117fefdcb63336ac09956a4914b961"
 
+check "reproduce.sh step 1" reproduce.sh "step 1/2: state construction"
+check "reproduce.sh step 2" reproduce.sh "step 2/2: crashing testcase"
+
 if [ -f MANIFEST.sha256 ]; then
 	if sha256sum -c MANIFEST.sha256 >/dev/null 2>&1; then
 		printf 'ok   MANIFEST.sha256\n'

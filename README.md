@@ -45,18 +45,27 @@ unmount was still running asynchronously. A harness that stops at
 
 ## Reproduction
 
-Fresh KVM guest, kernel command line in `7.3/cmdline-7.3.txt`:
+Fresh KVM guest, kernel command line in `7.3/cmdline-7.3.txt`. The
+reproduction is two steps in the same VM: first replay `repro.kernsight.prog`,
+then run `repro.prog`. Do not reboot between the two commands, and keep the
+VM running afterwards; the hung-task panic can appear after both commands
+have returned.
 
 ```sh
-scp syz-execprog syz-executor repro/repro.kernsight.prog root@guest:/tmp/
+scp syz-execprog syz-executor repro/repro.kernsight.prog repro/repro.prog root@guest:/tmp/
 ssh root@guest
 cd /tmp && chmod +x syz-execprog syz-executor
+
+# step 1: state construction (159 programs)
 ./syz-execprog -procs=1 -repeat=1 -disable=swap -executor ./syz-executor ./repro.kernsight.prog
+
+# step 2: crashing testcase, immediately afterwards
+./syz-execprog -procs=1 -repeat=1 -disable=swap -executor ./syz-executor ./repro.prog
 ```
 
-Settings: `sandbox=none`, threaded executor, `procs=1`, `repeat=1`. The
-programs run one at a time in file order. `repro/repro.prog` alone is not
-sufficient.
+Or run `reproduce.sh` inside the guest after copying these files. Settings:
+`sandbox=none`, threaded executor, `procs=1`, `repeat=1`. The programs run one
+at a time in file order. `repro/repro.prog` alone is not sufficient.
 
 The sequence contains syzkaller fault-injection annotations. In the 7.3.0 run
 a failslab failure in `gfs2_glock_get()` is injected from `gfs2_create_inode()`.
@@ -102,6 +111,7 @@ kernel/kernel-7.1.3.config        kernel config for the 7.1.3 report
 kernel/kernel-7.2.11.config       kernel config for the 7.2.11 replay
 kernel/kernel-7.3.config          kernel config for the 7.3.0 replay
 kernel/SOURCES.md                 source tags, commits and tarball checksums
+reproduce.sh                      runs kernsight.prog first, then repro.prog
 verify.sh                         re-checks the numbers quoted above
 MANIFEST.sha256                   sha256 of every file in this repository
 ```
